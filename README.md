@@ -1,2 +1,2 @@
 # ionic-test
-lear ionic
+lear ionic in this project
