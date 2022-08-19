@@ -14,6 +14,10 @@ const routes: Routes = [
           {
             path: 'place-detail',
             loadChildren: () => import('./discover/place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
+          },
+          {
+            path: '',
+            loadChildren: () => import('./discover/discover.module').then( m => m.DiscoverPageModule)
           }
         ]
       },
@@ -21,25 +25,36 @@ const routes: Routes = [
         path: 'offers',
         children: [
           {
-            path: 'new-offer',
+            path: '',
+            loadChildren: () => import('./offers/offers.module').then( m => m.OffersPageModule),
+            pathMatch: 'full'
+          },
+          {
+            path: 'new',
             loadChildren: () => import('./offers/new-offer/new-offer.module').then( m => m.NewOfferPageModule)
           },
           {
-            path: 'edit-offer',
+            path: 'edit',
             loadChildren: () => import('./offers/edit-offer/edit-offer.module').then( m => m.EditOfferPageModule)
           },
           {
-            path: 'place-bookings',
+            path: ':placeId',
             loadChildren: () => import('./offers/place-bookings/place-bookings.module').then( m => m.PlaceBookingsPageModule)
           }
+         
         ]
+      },
+      {
+        path:'',
+        redirectTo:'/places/tab/discover',
+        pathMatch: 'full'
       }
     ]
   },
   
   {
     path: '',
-    redirectTo: 'tab/discover',
+    redirectTo: '/places/tab/discover',
     pathMatch: 'full'
   },
 ];
