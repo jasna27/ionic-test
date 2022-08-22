@@ -5,9 +5,9 @@ import { PlaceDetailPage } from './place-detail.page';
 
 const routes: Routes = [
   {
-    path: ':placeId',
-    component: PlaceDetailPage
-  }
+    path: '',
+    component: PlaceDetailPage,
+  },
 ];
 
 @NgModule({

@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-offer</ion-title>
+    <ion-title>Edit offer</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        [defaultHref]="'/places/tab/offers/'+place.id"
+      ></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <form ref="forma" (ngSubmit)="onSubmit($event)">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input [value]="place.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input [value]="place.description"></ion-input>
+    </ion-item>
+    <ion-button type="submit"> Save </ion-button>
+  </form>
 </ion-content>
